@@ -10,37 +10,14 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: 'host',
-        filename: 'remoteEntry.js',
+        filename: 'authStore.js',
+        remotes: {
+          remote_app: `http://localhost:3002/dist/assets/authStore.js`,
+        },
         exposes: {
-          './authStore': './src/store/authStore',
+          './authStore': './src/store/authStore.js',
         },
-        shared: {
-          react: {
-            singleton: true,
-            requiredVersion: '^18.3.1',
-            eager: true,
-          },
-          'react-dom': {
-            singleton: true,
-            requiredVersion: '^18.3.1',
-            eager: true,
-          },
-          '@okta/okta-react': {
-            singleton: true,
-            requiredVersion: '^6.9.0',
-            eager: true,
-          },
-          '@okta/okta-auth-js': {
-            singleton: true,
-            requiredVersion: '^7.8.1',
-            eager: true,
-          },
-          zustand: {
-            singleton: true,
-            requiredVersion: '^5.0.1',
-            eager: true,
-          },
-        },
+        shared: ['react', 'react-dom', 'zustand'],
       }),
     ],
     build: {
