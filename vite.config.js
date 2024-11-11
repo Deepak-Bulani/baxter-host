@@ -17,27 +17,27 @@ export default defineConfig(({ mode }) => {
         shared: {
           react: {
             singleton: true,
-            requiredVersion: '^18.2.0',
+            requiredVersion: '^18.3.1',
             eager: true,
           },
           'react-dom': {
             singleton: true,
-            requiredVersion: '^18.2.0',
+            requiredVersion: '^18.3.1',
             eager: true,
           },
           '@okta/okta-react': {
             singleton: true,
-            requiredVersion: '^6.4.3',
+            requiredVersion: '^6.9.0',
             eager: true,
           },
           '@okta/okta-auth-js': {
             singleton: true,
-            requiredVersion: '^6.4.3',
+            requiredVersion: '^7.8.1',
             eager: true,
           },
           zustand: {
             singleton: true,
-            requiredVersion: '^4.3.0',
+            requiredVersion: '^5.0.1',
             eager: true,
           },
         },
