@@ -4,12 +4,15 @@ import { Security } from '@okta/okta-react';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { oktaConfig } from '../../../authConfig';
 import useAuthStore from '../../store/authStore';
+import { useNavigate } from 'react-router-dom';
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
+// eslint-disable-next-line react/prop-types
 const SecurityWrapper = ({ children }) => {
   const setAuthState = useAuthStore(state => state.setAuthState);
   const setOktaAuth = useAuthStore(state => state.setOktaAuth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const initializeAuth = async () => {
@@ -88,9 +91,7 @@ const SecurityWrapper = ({ children }) => {
       oktaAuth={oktaAuth}
       restoreOriginalUri={restoreOriginalUri}
       onAuthRequired={() => {
-        oktaAuth.signInWithRedirect({
-          originalUri: window.location.pathname,
-        });
+        navigate('/login');
       }}
     >
       {children}
