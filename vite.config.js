@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
         name: 'host',
         filename: 'authStore.js',
         remotes: {
-          remote_app: `http://localhost:3002/dist/assets/authStore.js`,
+          product: `${process.env.PRODUCT_APP_URL}/authStore.js`,
         },
         exposes: {
           './authStore': './src/store/authStore.js',

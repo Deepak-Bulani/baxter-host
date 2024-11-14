@@ -2,7 +2,7 @@ import useAuthStore from '../../store/authStore';
 import React, { Suspense } from 'react';
 import { tableHeaders } from '../../../data/tableHeader';
 
-const RemoteFlagTable = React.lazy(() => import('remote_app/FlagTable'));
+const RemoteFlagTable = React.lazy(() => import('product/FlagTable'));
 
 
 const Clinical = () => {
