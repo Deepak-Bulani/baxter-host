@@ -1,22 +1,30 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import federation from '@originjs/vite-plugin-federation'
+// host/vite.config.js
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
+import federation from '@originjs/vite-plugin-federation';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  build: {
-    target: 'esnext',
-    modulePreload: false
-  },
-  plugins: [
-    react(),
-    federation({
-      name: "app",
-      filename: "remoteEntry.js",
-      remotes: {
-        cms: "http://localhost:3001/assets/cmsEntry.js",
-      },
-      shared: ["react", "react-dom"]
-    })
-  ],
-})
+export default defineConfig(({ mode }) => {
+  loadEnv(mode, process.cwd(), '');
+  return {
+    plugins: [
+      react(),
+      federation({
+        name: 'host',
+        filename: 'authStore.js',
+        remotes: {
+          remote_app: `http://localhost:3002/dist/assets/authStore.js`,
+        },
+        exposes: {
+          './authStore': './src/store/authStore.js',
+        },
+        shared: ['react', 'react-dom', 'zustand'],
+      }),
+    ],
+    build: {
+      modulePreload: false,
+      target: 'esnext',
+      minify: false,
+      cssCodeSplit: false,
+    },
+  };
+});
