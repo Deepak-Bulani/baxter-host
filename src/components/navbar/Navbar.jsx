@@ -32,7 +32,7 @@ const NavBar = () => {
 `;
 
   return (
-    <div className="flex justify-center w-[1250px] gap-1 text-white text-sm bg-primary-navBarBgColor">
+    <div className="flex justify-center gap-1 text-white text-sm bg-primary-navBarBgColor">
       {navbarItem.map((item, index) => (
         <div
           key={index}
