@@ -20,8 +20,8 @@ export const navbarItem = [
     subMenuItem: [],
   },
   {
-    text: 'User Details',
-    link: '#',
+    text: 'Patient Adminstartion',
+    link: '/patientAd',
     subMenuFlag: false,
     subMenuItem: [],
     defaultHover: false,
