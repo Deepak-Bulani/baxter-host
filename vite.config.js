@@ -14,6 +14,8 @@ export default defineConfig(({ mode }) => {
         remotes: {
           remote_app: `http://localhost:3002/dist/assets/authStore.js`,
           cmsBaxter: `http://localhost:3001/assets/cmsEntry.js`,
+          product: `${process.env.PRODUCT_APP_URL}/authStore.js`,
+
         },
         exposes: {
           './authStore': './src/store/authStore.js',
