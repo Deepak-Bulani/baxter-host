@@ -20,6 +20,7 @@ module.exports = {
           borderColorNew: '#999',
           boxHeaderColor: '#6C8CB3',
           activeTabBorder: '#042f2e',
+          grayButton: '#f4f4f4',
         },
       },
     },
