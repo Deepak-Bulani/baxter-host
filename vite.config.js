@@ -12,12 +12,14 @@ export default defineConfig(({ mode }) => {
         name: 'host',
         filename: 'authStore.js',
         remotes: {
-          product: `${process.env.PRODUCT_APP_URL}/authStore.js`,
+          remote_app: `http://localhost:3002/dist/assets/authStore.js`,
+          patient: 'http://localhost:3001/dist/assets/cmsEntry.js',
+          atomicLibrary: 'http://localhost:3006/dist/assets/atomicLibrary.js',
         },
         exposes: {
           './authStore': './src/store/authStore.js',
         },
-        shared: ['react', 'react-dom', 'zustand'],
+        shared: ['react', 'react-dom', 'zustand', 'tailwindcss'],
       }),
     ],
     build: {

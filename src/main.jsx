@@ -7,6 +7,7 @@ import CustomSecurityWrapper from './components/auth/CustomSecurityWrapper.jsx';
 import Login from './pages/login/index.jsx';
 import Layout from './components/layout/Layout.jsx';
 import Clinical from './pages/clinical/index.jsx';
+import Patient from '../src/pages/patient/index.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login />,
+      },
+      {
+        path: 'patientAd',
+        element: <Patient />,
       },
       {
         path: 'callback',
