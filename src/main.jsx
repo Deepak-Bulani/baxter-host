@@ -8,6 +8,8 @@ import Login from './pages/login/index.jsx';
 import Layout from './components/layout/Layout.jsx';
 import Clinical from './pages/clinical/index.jsx';
 import Patient from '../src/pages/patient/index.jsx';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../src/i18n/index.js';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -52,4 +54,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={router} />);
+root.render(
+  <I18nextProvider i18n={i18n}>
+    <RouterProvider router={router} />
+  </I18nextProvider>
+);
